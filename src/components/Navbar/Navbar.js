@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router";
+import useUser from "../../hooks/useUser";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const { user } = useUser();
 
   const goHome = (event) => {
     navigate("/");
@@ -13,7 +15,7 @@ const Navbar = () => {
     navigate("/login");
   };
   const goLogout = (event) => {
-    navigate("/");
+    navigate("/logout");
   };
   const goSocial = (event) => {
     navigate("/SocialNetwork");
@@ -25,18 +27,26 @@ const Navbar = () => {
         <button type="button" className="btn btn-dark" onClick={goHome}>
           Home Page
         </button>
-        <button type="button" className="btn btn-dark" onClick={goRegister}>
-          Register
-        </button>
-        <button type="button" className="btn btn-dark" onClick={goLogin}>
-          Login
-        </button>
-        <button type="button" className="btn btn-dark" onClick={goLogout}>
-          Logout
-        </button>
-        <button type="button" className="btn btn-dark" onClick={goSocial}>
-          Social Network
-        </button>
+        {!user.autorizado && (
+          <button type="button" className="btn btn-dark" onClick={goRegister}>
+            Register
+          </button>
+        )}
+        {!user.autorizado && (
+          <button type="button" className="btn btn-dark" onClick={goLogin}>
+            Login
+          </button>
+        )}
+        {user.autorizado && (
+          <button type="button" className="btn btn-dark" onClick={goLogout}>
+            Logout
+          </button>
+        )}
+        {user.autorizado && (
+          <button type="button" className="btn btn-dark" onClick={goSocial}>
+            Social Network
+          </button>
+        )}
       </nav>
     </>
   );

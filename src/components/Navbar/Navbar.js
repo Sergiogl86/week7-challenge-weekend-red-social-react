@@ -22,19 +22,19 @@ const Navbar = () => {
   return (
     <>
       <nav className="navbar-dark bg-dark">
-        <button type="button" class="btn btn-dark" onClick={goHome}>
+        <button type="button" className="btn btn-dark" onClick={goHome}>
           Home Page
         </button>
-        <button type="button" class="btn btn-dark" onClick={goRegister}>
+        <button type="button" className="btn btn-dark" onClick={goRegister}>
           Register
         </button>
-        <button type="button" class="btn btn-dark" onClick={goLogin}>
+        <button type="button" className="btn btn-dark" onClick={goLogin}>
           Login
         </button>
-        <button type="button" class="btn btn-dark" onClick={goLogout}>
+        <button type="button" className="btn btn-dark" onClick={goLogout}>
           Logout
         </button>
-        <button type="button" class="btn btn-dark" onClick={goSocial}>
+        <button type="button" className="btn btn-dark" onClick={goSocial}>
           Social Network
         </button>
       </nav>

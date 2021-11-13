@@ -5,8 +5,11 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import SocialNetwork from "./pages/SocialNetwork";
 import HomePage from "./pages/HomePage";
+import LogoutPage from "./pages/LogoutPage";
+import useUser from "./hooks/useUser";
 
 function App() {
+  const { user } = useUser();
   return (
     <>
       <h1>Week 7 - Challenge Weekend Red Social - Sergio</h1>
@@ -15,9 +18,14 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/*" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/Register" element={<RegisterPage />} />
-          <Route path="/SocialNetwork" element={<SocialNetwork />} />
+          {!user.autorizado && <Route path="/login" element={<LoginPage />} />}
+          {user.autorizado && <Route path="/logout" element={<LogoutPage />} />}
+          {!user.autorizado && (
+            <Route path="/Register" element={<RegisterPage />} />
+          )}
+          {user.autorizado && (
+            <Route path="/SocialNetwork" element={<SocialNetwork />} />
+          )}
         </Routes>
       </Router>
     </>

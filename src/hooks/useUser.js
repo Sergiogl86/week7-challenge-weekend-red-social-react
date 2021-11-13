@@ -3,7 +3,7 @@ import {
   loginUserAction,
   logOutUserAction,
 } from "../redux/actions/userActionCreators";
-import { loginUserThunk } from "../redux/thunks/userThunks";
+import { loginUserThunk, registerUserThunk } from "../redux/thunks/userThunks";
 import jwtDecode from "jwt-decode";
 import { useCallback } from "react";
 
@@ -13,6 +13,11 @@ const useUser = () => {
 
   const loginUser = (user) => {
     dispatch(loginUserThunk(user));
+  };
+
+  const registerUser = (user) => {
+    debugger;
+    dispatch(registerUserThunk(user));
   };
 
   const logoutUser = () => {
@@ -33,6 +38,7 @@ const useUser = () => {
     loginUser,
     logoutUser,
     comprobarToken,
+    registerUser,
   };
 };
 

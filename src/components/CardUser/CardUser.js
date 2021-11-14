@@ -5,7 +5,15 @@ const CardUser = () => {
     <>
       <div className="cardUser">
         <div className="cardUser__username">
-          <h2 className="fs-3">Goku</h2>
+          <h2 className="fs-3 fw-bold">Goku</h2>
+          <div className="cardUser__buttons">
+            <button type="button" class="btn btn-dark m-1">
+              Amigo
+            </button>
+            <button type="button" class="btn btn-dark m-1">
+              Enemigo
+            </button>
+          </div>
         </div>
         <div className="cardUser__info">
           <div className="cardUser__info-user">
@@ -22,7 +30,7 @@ const CardUser = () => {
         </div>
         <div className="cardUser__bio">
           <h3 className="fs-6">Biografia:</h3>
-          <p className="fs-6">
+          <p className="fst-italic">
             Son Goku es un personaje ficticio, protagonista de la serie de manga
             y anime Dragon Ball.
           </p>

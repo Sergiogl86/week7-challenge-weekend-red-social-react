@@ -14,8 +14,11 @@
 }
 
 .cardUser__username {
+  display: flex;
+  justify-content: space-between;
   width: 95%;
   height: 16%;
+  margin-bottom: 15px;
 }
 
 .cardUser__info {

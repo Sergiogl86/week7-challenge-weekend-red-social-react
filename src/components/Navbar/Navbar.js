@@ -24,26 +24,51 @@ const Navbar = () => {
   return (
     <>
       <nav className="navbar-dark bg-dark">
-        <button type="button" className="btn btn-dark" onClick={goHome}>
+        <button
+          data-testid="navbar-home"
+          type="button"
+          className="btn btn-dark"
+          onClick={goHome}
+        >
           Home Page
         </button>
         {!user.autorizado && (
-          <button type="button" className="btn btn-dark" onClick={goRegister}>
+          <button
+            data-testid="navbar-register"
+            type="button"
+            className="btn btn-dark"
+            onClick={goRegister}
+          >
             Register
           </button>
         )}
         {!user.autorizado && (
-          <button type="button" className="btn btn-dark" onClick={goLogin}>
+          <button
+            data-testid="navbar-login"
+            type="button"
+            className="btn btn-dark"
+            onClick={goLogin}
+          >
             Login
           </button>
         )}
         {user.autorizado && (
-          <button type="button" className="btn btn-dark" onClick={goLogout}>
+          <button
+            data-testid="navbar-logout"
+            type="button"
+            className="btn btn-dark"
+            onClick={goLogout}
+          >
             Logout
           </button>
         )}
         {user.autorizado && (
-          <button type="button" className="btn btn-dark" onClick={goSocial}>
+          <button
+            data-testid="navbar-social"
+            type="button"
+            className="btn btn-dark"
+            onClick={goSocial}
+          >
             Social Network
           </button>
         )}

@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import renderWithProviders from "../test/test-utils";
+import renderWithProviders from "../test/test-utils.router";
 import RegisterPage from "./RegisterPage";
 
 describe("Given a RegisterPage component", () => {

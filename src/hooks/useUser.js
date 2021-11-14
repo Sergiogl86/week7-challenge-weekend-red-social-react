@@ -16,7 +16,6 @@ const useUser = () => {
   };
 
   const registerUser = (user) => {
-    debugger;
     dispatch(registerUserThunk(user));
   };
 

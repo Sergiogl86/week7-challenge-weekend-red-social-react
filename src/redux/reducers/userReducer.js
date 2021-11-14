@@ -9,8 +9,6 @@ const userReducer = (
 ) => {
   let newUser;
 
-  debugger;
-
   switch (action.type) {
     case userActionTypes.loginUser:
       newUser = {

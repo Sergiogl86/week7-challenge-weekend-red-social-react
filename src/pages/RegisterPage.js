@@ -27,7 +27,6 @@ const RegisterPage = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    debugger;
     registerUser(formData);
     navigate("/login");
   };

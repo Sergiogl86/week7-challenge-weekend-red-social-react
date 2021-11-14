@@ -15,7 +15,6 @@ export const loginUserThunk = (userLogin) => {
       } else {
         localStorage.setItem("userToken", user.token);
         const userData = jwtDecode(user.token);
-        debugger;
         dispatch(loginUserAction(userData));
         console.log(`Se ha conectado ${userData.name}`);
       }
@@ -27,7 +26,6 @@ export const loginUserThunk = (userLogin) => {
 
 export const registerUserThunk = (userRegister) => {
   return async (dispatch) => {
-    debugger;
     const loginUrl = `${urlApi}register`;
     const sendUser = new FormData();
     sendUser.append("username", userRegister.username);
@@ -39,14 +37,11 @@ export const registerUserThunk = (userRegister) => {
     try {
       const { data: user } = await axios.post(loginUrl, sendUser);
       if (user.error) {
-        debugger;
         console.log(user);
       } else {
-        debugger;
         console.log(user);
       }
     } catch (error) {
-      debugger;
       console.log(error.response.data.error);
     }
   };

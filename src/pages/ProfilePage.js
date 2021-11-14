@@ -22,11 +22,12 @@ const ProfilePage = () => {
   useEffect(() => {
     if (members[0]) {
       setFormData({
-        ...formData,
         username: members[0].username,
         name: members[0].name,
         age: members[0].age,
         bio: members[0].bio,
+        password: "",
+        img: "",
       });
     }
   }, [members]);
@@ -42,13 +43,11 @@ const ProfilePage = () => {
   };
 
   const onSubmit = async (event) => {
-    debugger;
     event.preventDefault();
     const response = await updateProfileUser(formData);
     if (!response) {
       setWrongCredentials(false);
     } else {
-      debugger;
       setWrongCredentials(true);
     }
   };

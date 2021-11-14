@@ -40,6 +40,7 @@ const LoginPage = () => {
             <div className="form-group">
               <label htmlFor="username">Nombre Usuario: </label>
               <input
+                data-testid="login-username"
                 type="text"
                 id="username"
                 className="form-control"
@@ -50,6 +51,7 @@ const LoginPage = () => {
             <div className="form-group">
               <label htmlFor="password">Contraseña: </label>
               <input
+                data-testid="login-password"
                 type="password"
                 id="password"
                 className="form-control"
@@ -58,7 +60,11 @@ const LoginPage = () => {
               />
             </div>
             <div className="form-group mt-3">
-              <button type="submit" className="btn btn-dark">
+              <button
+                data-testid="login-Entrar"
+                type="submit"
+                className="btn btn-dark"
+              >
                 Entrar
               </button>
             </div>

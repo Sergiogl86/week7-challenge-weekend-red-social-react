@@ -46,6 +46,7 @@ const RegisterPage = () => {
             <div className="form-group">
               <label htmlFor="username">Nombre Usuario: </label>
               <input
+                data-testid="register-username"
                 type="text"
                 id="username"
                 className="form-control"
@@ -56,6 +57,7 @@ const RegisterPage = () => {
             <div className="form-group">
               <label htmlFor="name">Nombre: </label>
               <input
+                data-testid="register-name"
                 type="text"
                 id="name"
                 className="form-control"
@@ -66,6 +68,7 @@ const RegisterPage = () => {
             <div className="form-group">
               <label htmlFor="password">Contraseña: </label>
               <input
+                data-testid="register-password"
                 type="password"
                 id="password"
                 className="form-control"
@@ -76,6 +79,7 @@ const RegisterPage = () => {
             <div className="form-group">
               <label htmlFor="age">Edad: </label>
               <input
+                data-testid="register-age"
                 type="number"
                 id="age"
                 className="form-control"
@@ -86,6 +90,7 @@ const RegisterPage = () => {
             <div className="form-group">
               <label htmlFor="bio">Algo sobre ti?: </label>
               <textarea
+                data-testid="register-bio"
                 type="text"
                 id="bio"
                 className="form-control"
@@ -96,6 +101,7 @@ const RegisterPage = () => {
             <div className="form-group">
               <label htmlFor="img">Foto: </label>
               <input
+                data-testid="register-file"
                 type="file"
                 id="img"
                 className="form-control"
@@ -103,7 +109,11 @@ const RegisterPage = () => {
               />
             </div>
             <div className="form-group mt-3">
-              <button type="submit" className="btn btn-dark">
+              <button
+                data-testid="register-Registrar"
+                type="submit"
+                className="btn btn-dark"
+              >
                 Registrar
               </button>
             </div>

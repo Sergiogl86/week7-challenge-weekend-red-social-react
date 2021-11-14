@@ -34,7 +34,6 @@ const RegisterPage = () => {
     if (!response) {
       navigate("/login");
     } else {
-      debugger;
       setWrongCredentials(true);
     }
   };

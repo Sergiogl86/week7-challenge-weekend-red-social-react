@@ -19,8 +19,8 @@ const useMembers = () => {
     dispatch(getProfileUserThunk());
   }, [dispatch]);
 
-  const updateProfileUser = (profile) => {
-    const response = dispatch(updateProfileUserThunk(profile));
+  const updateProfileUser = async (profile) => {
+    const response = await dispatch(updateProfileUserThunk(profile));
     return response;
   };
 

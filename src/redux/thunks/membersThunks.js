@@ -55,7 +55,8 @@ export const updateProfileUserThunk = (updateProfile) => {
 
       dispatch(getProfileAction(members));
     } catch (error) {
-      return error;
+      debugger;
+      return error.message;
     }
   };
 };

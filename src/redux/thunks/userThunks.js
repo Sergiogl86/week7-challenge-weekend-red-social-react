@@ -35,7 +35,8 @@ export const registerUserThunk = (userRegister) => {
     try {
       await axios.post(loginUrl, sendUser);
     } catch (error) {
-      return error.response.data;
+      debugger;
+      return error.message;
     }
   };
 };

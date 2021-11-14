@@ -1,41 +1,38 @@
 import "./cardUser.css";
 
-const CardUser = () => {
+const CardUser = ({ member }) => {
   return (
     <>
-      <div className="cardUser">
+      <li className="cardUser">
         <div className="cardUser__username">
-          <h2 className="fs-3 fw-bold">Goku</h2>
+          <h3 className="cardUser__name fs-4 fw-bold">{member.username}</h3>
           <div className="cardUser__buttons">
-            <button type="button" class="btn btn-dark m-1">
+            <button type="button" className="btn btn-dark m-1">
               Amigo
             </button>
-            <button type="button" class="btn btn-dark m-1">
+            <button type="button" className="btn btn-dark m-1">
               Enemigo
             </button>
           </div>
         </div>
         <div className="cardUser__info">
           <div className="cardUser__info-user">
-            <h3 className="fs-5">Nombre: Son Goku</h3>
-            <h3 className="fs-6">Edad: 100</h3>
+            <h4 className="fs-5">{`Nombre: ${member.name}`}</h4>
+            <h4 className="fs-6">{`Edad: ${member.age}`}</h4>
           </div>
           <div className="cardUser__info-image">
             <img
               className="cardUser__info-size"
-              src="https://storage.googleapis.com/skylab-sergio-red-social-api.appspot.com/API_Sergio-goku-1636837883802-.jpg"
-              alt="Goku-profile"
+              src={member.image}
+              alt={`Imagen: ${member.name}`}
             />
           </div>
         </div>
         <div className="cardUser__bio">
-          <h3 className="fs-6">Biografia:</h3>
-          <p className="fst-italic">
-            Son Goku es un personaje ficticio, protagonista de la serie de manga
-            y anime Dragon Ball.
-          </p>
+          <h4 className="fs-6">Biografia:</h4>
+          <p className="fst-italic">{member.bio}</p>
         </div>
-      </div>
+      </li>
     </>
   );
 };

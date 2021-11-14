@@ -21,7 +21,6 @@ const LoginPage = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-
     loginUser(formData);
     navigate("/logout");
   };

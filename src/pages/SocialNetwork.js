@@ -1,10 +1,10 @@
-import CardUser from "../components/CardUser/CardUser";
+import Members from "./../components/Members/Members";
 
 const SocialNetwork = () => {
   return (
     <>
       <h2>SocialNetwork</h2>
-      <CardUser />
+      <Members />
     </>
   );
 };

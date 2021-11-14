@@ -1,6 +1,6 @@
 import socialActionTypes from "./socialActionTypes";
 
-export const leerRobotsAction = (members) => ({
+export const getMembersAction = (members) => ({
   type: socialActionTypes.loadMembers,
   members,
 });

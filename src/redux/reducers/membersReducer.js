@@ -1,7 +1,8 @@
 import socialActionTypes from "../actions/socialActionTypes";
 
-const socialReducer = (members = [], action) => {
+const membersReducer = (members = [], action) => {
   let newMembers;
+  debugger;
 
   switch (action.type) {
     case socialActionTypes.loadMembers:
@@ -14,4 +15,4 @@ const socialReducer = (members = [], action) => {
   return newMembers;
 };
 
-export default socialReducer;
+export default membersReducer;

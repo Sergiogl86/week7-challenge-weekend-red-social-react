@@ -5,6 +5,9 @@ import useUser from "../hooks/useUser";
 
 const RegisterPage = () => {
   const { registerUser } = useUser();
+
+  const [wrongCredentials, setWrongCredentials] = useState(false);
+
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
@@ -27,8 +30,13 @@ const RegisterPage = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    registerUser(formData);
-    navigate("/login");
+    const response = await registerUser(formData);
+    if (!response) {
+      navigate("/login");
+    } else {
+      debugger;
+      setWrongCredentials(true);
+    }
   };
 
   return (
@@ -107,6 +115,11 @@ const RegisterPage = () => {
                 onChange={changeData}
               />
             </div>
+            {wrongCredentials ? (
+              <h5 className="credential-error m-3">Datos incorrectos!</h5>
+            ) : (
+              ""
+            )}
             <div className="form-group mt-3">
               <button
                 data-testid="register-Registrar"

@@ -16,7 +16,7 @@ const LogoutPage = () => {
       <h2>Logout</h2>
       <div className="container logoutPage">
         <div className="list-group-item">
-          <h2 className="list-group-item list-group-item-dark">{`Hola ${user.user.username}`}</h2>
+          <h2 className="list-group-item list-group-item-dark">{`Adios ${user.user.username}!`}</h2>
           <button
             data-testid="logout-Registrar"
             type="button"

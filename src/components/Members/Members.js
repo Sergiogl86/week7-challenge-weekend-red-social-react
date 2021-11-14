@@ -7,7 +7,6 @@ const Members = () => {
   const { members, showMembers } = useMembers();
 
   useEffect(() => {
-    debugger;
     showMembers();
   }, [showMembers]);
 

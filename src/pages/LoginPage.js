@@ -7,6 +7,8 @@ const LoginPage = () => {
   const { loginUser } = useUser();
   const navigate = useNavigate();
 
+  const [wrongCredentials, setWrongCredentials] = useState(false);
+
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -21,8 +23,12 @@ const LoginPage = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    loginUser(formData);
-    navigate("/logout");
+    const response = await loginUser(formData);
+    if (!response) {
+      navigate("/logout");
+    } else {
+      setWrongCredentials(true);
+    }
   };
 
   return (
@@ -58,6 +64,13 @@ const LoginPage = () => {
                 onChange={changeData}
               />
             </div>
+            {wrongCredentials ? (
+              <h5 className="credential-error m-3">
+                Usuario o contraseña erroneos!
+              </h5>
+            ) : (
+              ""
+            )}
             <div className="form-group mt-3">
               <button
                 data-testid="login-Entrar"

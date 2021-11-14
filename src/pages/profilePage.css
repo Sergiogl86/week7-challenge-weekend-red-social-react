@@ -1,0 +1,21 @@
+.registerPage {
+  max-width: 700px;
+}
+
+.profile-updateImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 250px;
+  background-color: rgb(185, 185, 185);
+  overflow: hidden;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #212529;
+  border-radius: 15px;
+}
+
+.registerPage-image__size {
+  max-width: 130%;
+}

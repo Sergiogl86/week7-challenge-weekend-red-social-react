@@ -11,15 +11,13 @@ export const loginUserThunk = (userLogin) => {
     try {
       const { data: user } = await axios.post(loginUrl, userLogin);
       if (user.error) {
-        console.log(user);
       } else {
         localStorage.setItem("userToken", user.token);
         const userData = jwtDecode(user.token);
         dispatch(loginUserAction(userData));
-        console.log(`Se ha conectado ${userData.name}`);
       }
     } catch (error) {
-      console.log(error.response.data.error);
+      return error.response.data;
     }
   };
 };
@@ -35,14 +33,9 @@ export const registerUserThunk = (userRegister) => {
     sendUser.append("bio", userRegister.bio);
     sendUser.append("img", userRegister.img);
     try {
-      const { data: user } = await axios.post(loginUrl, sendUser);
-      if (user.error) {
-        console.log(user);
-      } else {
-        console.log(user);
-      }
+      await axios.post(loginUrl, sendUser);
     } catch (error) {
-      console.log(error.response.data.error);
+      return error.response.data;
     }
   };
 };

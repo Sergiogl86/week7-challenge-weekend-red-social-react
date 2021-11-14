@@ -21,6 +21,10 @@ const Navbar = () => {
     navigate("/SocialNetwork");
   };
 
+  const goProfile = (event) => {
+    navigate("/Profile");
+  };
+
   return (
     <>
       <nav className="navbar-dark bg-dark">
@@ -32,6 +36,16 @@ const Navbar = () => {
         >
           Home Page
         </button>
+        {user.autorizado && (
+          <button
+            data-testid="navbar-profile"
+            type="button"
+            className="btn btn-dark"
+            onClick={goProfile}
+          >
+            Profile
+          </button>
+        )}
         {!user.autorizado && (
           <button
             data-testid="navbar-register"

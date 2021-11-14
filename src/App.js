@@ -7,9 +7,15 @@ import SocialNetwork from "./pages/SocialNetwork";
 import HomePage from "./pages/HomePage";
 import LogoutPage from "./pages/LogoutPage";
 import useUser from "./hooks/useUser";
+import { useEffect } from "react";
 
 function App() {
-  const { user } = useUser();
+  const { user, checkToken } = useUser();
+
+  useEffect(() => {
+    checkToken();
+  }, [checkToken]);
+
   return (
     <>
       <h1>Week 7 - Challenge Weekend Red Social - Sergio</h1>

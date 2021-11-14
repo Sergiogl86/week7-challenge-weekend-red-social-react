@@ -8,7 +8,6 @@ const urlApi = process.env.REACT_APP_API_URL_USER;
 export const loginUserThunk = (userLogin) => {
   return async (dispatch) => {
     const loginUrl = `${urlApi}login`;
-    debugger;
     try {
       const { data: user } = await axios.post(loginUrl, userLogin);
       if (user.error) {
@@ -16,7 +15,7 @@ export const loginUserThunk = (userLogin) => {
       } else {
         localStorage.setItem("userToken", user.token);
         const userData = jwtDecode(user.token);
-
+        debugger;
         dispatch(loginUserAction(userData));
         console.log(`Se ha conectado ${userData.name}`);
       }

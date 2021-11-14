@@ -12,11 +12,13 @@ const useUser = () => {
   const user = useSelector((store) => store.user);
 
   const loginUser = (user) => {
-    dispatch(loginUserThunk(user));
+    const response = dispatch(loginUserThunk(user));
+    return response;
   };
 
   const registerUser = (user) => {
-    dispatch(registerUserThunk(user));
+    const response = dispatch(registerUserThunk(user));
+    return response;
   };
 
   const logoutUser = () => {

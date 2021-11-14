@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage";
 import LogoutPage from "./pages/LogoutPage";
 import useUser from "./hooks/useUser";
 import { useEffect } from "react";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   const { user, checkToken } = useUser();
@@ -24,6 +25,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/*" element={<HomePage />} />
+          {user.autorizado && (
+            <Route path="/Profile" element={<ProfilePage />} />
+          )}
           {!user.autorizado && <Route path="/login" element={<LoginPage />} />}
           {user.autorizado && <Route path="/logout" element={<LogoutPage />} />}
           {!user.autorizado && (

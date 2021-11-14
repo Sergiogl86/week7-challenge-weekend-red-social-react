@@ -1,4 +1,16 @@
 .homepage-img {
-  width: 80vw;
+  width: 60vw;
   min-width: 300px;
+}
+.homepage-img:hover {
+  cursor: pointer;
+}
+
+.homepage-img-logo {
+  width: 40vw;
+  min-width: 200px;
+}
+
+.homepage-img-logo:hover {
+  cursor: pointer;
 }

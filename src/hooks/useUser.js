@@ -25,7 +25,7 @@ const useUser = () => {
     localStorage.removeItem("userToken");
   };
 
-  const comprobarToken = useCallback(() => {
+  const checkToken = useCallback(() => {
     if (localStorage.getItem("userToken")) {
       const token = localStorage.getItem("userToken");
       const userData = jwtDecode(token);
@@ -37,7 +37,7 @@ const useUser = () => {
     user,
     loginUser,
     logoutUser,
-    comprobarToken,
+    checkToken,
     registerUser,
   };
 };

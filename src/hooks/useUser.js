@@ -11,13 +11,13 @@ const useUser = () => {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
 
-  const loginUser = (user) => {
-    const response = dispatch(loginUserThunk(user));
+  const loginUser = async (user) => {
+    const response = await dispatch(loginUserThunk(user));
     return response;
   };
 
-  const registerUser = (user) => {
-    const response = dispatch(registerUserThunk(user));
+  const registerUser = async (user) => {
+    const response = await dispatch(registerUserThunk(user));
     return response;
   };
 

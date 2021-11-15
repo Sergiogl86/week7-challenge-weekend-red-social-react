@@ -3,6 +3,7 @@ import {
   getMembersAction,
   getProfileAction,
 } from "../actions/socialActionCreators";
+import { loginUserAction } from "../actions/userActionCreators";
 
 const urlApi = process.env.REACT_APP_API_URL_USER;
 
@@ -27,10 +28,11 @@ export const getProfileUserThunk = () => {
     const userProfileUrl = `${urlApi}userProfile`;
     try {
       const token = localStorage.getItem("userToken");
-      const { data: members } = await axios.get(userProfileUrl, {
+      const { data: member } = await axios.get(userProfileUrl, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      dispatch(getProfileAction(members));
+      dispatch(getProfileAction(member));
+      dispatch(loginUserAction(member));
     } catch (error) {
       return error.response.data;
     }
@@ -57,6 +59,86 @@ export const updateProfileUserThunk = (updateProfile) => {
     } catch (error) {
       debugger;
       return error.message;
+    }
+  };
+};
+
+export const addFriendsThunk = (friendId) => {
+  const addFriendsUrl = `${urlApi}friends`;
+  debugger;
+  return async (dispatch) => {
+    try {
+      const token = localStorage.getItem("userToken");
+      const { data: friends } = await axios.put(
+        addFriendsUrl,
+        {
+          friendId,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      debugger;
+      dispatch(loginUserAction(friends));
+    } catch (error) {
+      debugger;
+      return error.message;
+    }
+  };
+};
+
+export const addEnemiesThunk = (enemieId) => {
+  const addEnemiesUrl = `${urlApi}enemies`;
+  debugger;
+  return async (dispatch) => {
+    try {
+      const token = localStorage.getItem("userToken");
+      const { data: enemies } = await axios.put(
+        addEnemiesUrl,
+        {
+          enemieId,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      debugger;
+      dispatch(loginUserAction(enemies));
+    } catch (error) {
+      debugger;
+      return error.message;
+    }
+  };
+};
+
+export const showFriendsThunk = () => {
+  return async (dispatch) => {
+    const showFriendsUrl = `${urlApi}friends`;
+    try {
+      const token = localStorage.getItem("userToken");
+      const { data: friends } = await axios.get(showFriendsUrl, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      dispatch(getMembersAction(friends));
+    } catch (error) {
+      return error.response.data;
+    }
+  };
+};
+
+export const showEnemiesThunk = () => {
+  return async (dispatch) => {
+    const showEnemiesUrl = `${urlApi}enemies`;
+    try {
+      const token = localStorage.getItem("userToken");
+      const { data: friends } = await axios.get(showEnemiesUrl, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      dispatch(getMembersAction(friends));
+    } catch (error) {
+      return error.response.data;
     }
   };
 };

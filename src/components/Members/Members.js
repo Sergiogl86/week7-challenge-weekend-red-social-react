@@ -12,6 +12,9 @@ const Members = () => {
 
   return (
     <>
+      <div className="members-number">
+        <h2 className="fs-4 fw-bold">{`Mostrando -> ${members.length} usuarios`}</h2>
+      </div>
       <ul className="members-list">
         {members.map((member) => (
           <CardUser member={member} key={member.id} />

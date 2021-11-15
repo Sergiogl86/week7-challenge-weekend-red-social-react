@@ -57,7 +57,6 @@ export const updateProfileUserThunk = (updateProfile) => {
 
       dispatch(getProfileAction(members));
     } catch (error) {
-      debugger;
       return error.message;
     }
   };
@@ -65,7 +64,6 @@ export const updateProfileUserThunk = (updateProfile) => {
 
 export const addFriendsThunk = (friendId) => {
   const addFriendsUrl = `${urlApi}friends`;
-  debugger;
   return async (dispatch) => {
     try {
       const token = localStorage.getItem("userToken");
@@ -78,10 +76,8 @@ export const addFriendsThunk = (friendId) => {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      debugger;
       dispatch(loginUserAction(friends));
     } catch (error) {
-      debugger;
       return error.message;
     }
   };
@@ -89,7 +85,6 @@ export const addFriendsThunk = (friendId) => {
 
 export const addEnemiesThunk = (enemieId) => {
   const addEnemiesUrl = `${urlApi}enemies`;
-  debugger;
   return async (dispatch) => {
     try {
       const token = localStorage.getItem("userToken");
@@ -102,10 +97,8 @@ export const addEnemiesThunk = (enemieId) => {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      debugger;
       dispatch(loginUserAction(enemies));
     } catch (error) {
-      debugger;
       return error.message;
     }
   };

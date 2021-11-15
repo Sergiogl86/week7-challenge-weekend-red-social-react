@@ -7,7 +7,6 @@ const CardUser = ({ member }) => {
   const { user } = useUser();
 
   const onclickAmigo = () => {
-    debugger;
     addFriendsUser(member.id);
   };
 

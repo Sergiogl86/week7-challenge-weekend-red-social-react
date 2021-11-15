@@ -1,7 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useCallback } from "react";
 import {
+  addEnemiesThunk,
+  addFriendsThunk,
   getProfileUserThunk,
+  showEnemiesThunk,
+  showFriendsThunk,
   showMembersThunk,
   updateProfileUserThunk,
 } from "./../redux/thunks/membersThunks";
@@ -24,10 +28,34 @@ const useMembers = () => {
     return response;
   };
 
+  const addFriendsUser = async (friendId) => {
+    debugger;
+    dispatch(addFriendsThunk(friendId));
+  };
+
+  const addEnemiesUser = async (enemieId) => {
+    debugger;
+    dispatch(addEnemiesThunk(enemieId));
+  };
+
+  const showFriendsUser = async () => {
+    debugger;
+    dispatch(showFriendsThunk());
+  };
+
+  const showEnemiesUser = async () => {
+    debugger;
+    dispatch(showEnemiesThunk());
+  };
+
   return {
     members,
     showMembers,
+    addFriendsUser,
+    addEnemiesUser,
     getProfileUser,
+    showFriendsUser,
+    showEnemiesUser,
     updateProfileUser,
   };
 };

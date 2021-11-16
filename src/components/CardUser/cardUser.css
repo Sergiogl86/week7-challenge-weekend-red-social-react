@@ -27,7 +27,11 @@
 }
 
 .cardUser__buttons {
+  display: flex;
+  justify-content: end;
+  align-items: center;
   width: 50%;
+  margin-top: 5px;
 }
 
 .cardUser__info {

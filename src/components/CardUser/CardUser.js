@@ -20,24 +20,28 @@ const CardUser = ({ member }) => {
         <div className="cardUser__username">
           <h3 className="cardUser__name fs-4 fw-bold">{member.username}</h3>
           <div className="cardUser__buttons">
-            <button
-              type="button"
-              className="btn btn-dark m-1"
-              onClick={() => {
-                onclickAmigo();
-              }}
-            >
-              Amigo
-            </button>
-            <button
-              type="button"
-              className="btn btn-dark m-1"
-              onClick={() => {
-                onclickEnemigo();
-              }}
-            >
-              Enemigo
-            </button>
+            {!user.user.friends.find((id) => id === member.id) && (
+              <button
+                type="button"
+                className="btn btn-dark m-1"
+                onClick={() => {
+                  onclickAmigo();
+                }}
+              >
+                Amigo
+              </button>
+            )}
+            {!user.user.enemies.find((id) => id === member.id) && (
+              <button
+                type="button"
+                className="btn btn-dark m-1"
+                onClick={() => {
+                  onclickEnemigo();
+                }}
+              >
+                Enemigo
+              </button>
+            )}
           </div>
         </div>
         <div className="cardUser__info">

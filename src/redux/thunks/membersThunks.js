@@ -39,6 +39,21 @@ export const getProfileUserThunk = () => {
   };
 };
 
+export const checkTokenThunk = () => {
+  return async (dispatch) => {
+    const userProfileUrl = `${urlApi}userProfile`;
+    try {
+      const token = localStorage.getItem("userToken");
+      const { data: member } = await axios.get(userProfileUrl, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      dispatch(loginUserAction(member));
+    } catch (error) {
+      return error.response.data;
+    }
+  };
+};
+
 export const updateProfileUserThunk = (updateProfile) => {
   const updateProfileUrl = `${urlApi}updateProfile`;
   const sendUser = new FormData();
